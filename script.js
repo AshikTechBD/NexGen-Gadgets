@@ -95,4 +95,20 @@ function resetForm() {
     showToast("Form cleared.");
 }
 
+function subscribeNewsletter() {
+    var input = document.getElementById("newsletterEmail");
+    if (!input) {
+        return false;
+    }
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(input.value.trim())) {
+        showToast("Please enter a valid email address.");
+        input.focus();
+        return false;
+    }
+    showToast("You're subscribed! Welcome to the NexGen family.");
+    input.value = "";
+    return false;
+}
+
 document.addEventListener("DOMContentLoaded", updateCartBadge);
