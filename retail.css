@@ -155,6 +155,14 @@ body {
     color: #92a4b9;
 }
 
+@media (max-width: 1500px) {
+    .categories-inner > a,
+    .mega-toggle {
+        padding-inline: 0.45rem;
+        font-size: 0.84rem;
+    }
+}
+
 .mega-panel {
     display: none;
     position: absolute;
@@ -311,6 +319,19 @@ body {
     font-size: 0.85rem;
 }
 
+.products-page .section > .source-note {
+    max-width: 1100px;
+    margin: -0.35rem 0 0.9rem;
+    color: #718095;
+    font-size: 0.78rem;
+}
+
+.source-note a {
+    color: var(--brand);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
 .products-page .product-toolbar {
     margin-bottom: 0.75rem;
 }
@@ -385,6 +406,14 @@ body {
     color: var(--brand);
     background: #fff4f4;
     font-size: 0.67rem;
+}
+
+.apple-badge {
+    color: var(--brand);
+    font-size: 0.69rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .product-body h3 {

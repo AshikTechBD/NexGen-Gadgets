@@ -156,6 +156,97 @@ var appleProductRows = [
     ["Apple Watch Ultra 4 Titanium Milanese Loop",10000,"Apple-Watch-Ultra-4w-9415.png"]
 ];
 
+function classifyAppleProduct(name) {
+    if (/^apple watch (magnetic|alpine)/i.test(name)) return "Accessory";
+    if (/case|cable|adapter|charger|dock|keyboard|mouse|pencil|reader|loop|remote|folio|tips|kit/i.test(name)) return "Accessory";
+    if (/^iphone\b/i.test(name)) return "Smartphone";
+    if (/^ipad\b/i.test(name)) return "Tablet";
+    if (/^macbook\b/i.test(name)) return "Laptop";
+    if (/^apple mac (mini|studio)\b|^mac (mini|studio)\b|^imac\b|studio display/i.test(name)) return "Desktop";
+    if (/^apple watch\b/i.test(name)) return "Wearable";
+    if (/airpods|earpods|homepod/i.test(name)) return "Audio";
+    return "Accessory";
+}
+
+function renderAppleProducts() {
+    var grid = document.querySelector(".product-grid");
+    if (!grid) return;
+    var imageBase = "https://adminapi.applegadgetsbd.com/storage/media/medium/";
+
+    appleProductRows.forEach(function (row) {
+        var name = row[0];
+        var price = row[1];
+        var card = document.createElement("article");
+        card.className = "product-card";
+        card.setAttribute("data-brand", "apple");
+
+        var thumb = document.createElement("div");
+        thumb.className = "thumb";
+        var image = document.createElement("img");
+        image.src = imageBase + encodeURIComponent(row[2]);
+        image.alt = "Product photo of " + name;
+        image.loading = "lazy";
+        image.decoding = "async";
+        thumb.appendChild(image);
+        card.appendChild(thumb);
+
+        var body = document.createElement("div");
+        body.className = "product-body";
+        var brand = document.createElement("span");
+        brand.className = "apple-badge";
+        brand.textContent = "Apple collection";
+        var tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = classifyAppleProduct(name);
+        var heading = document.createElement("h3");
+        heading.textContent = name;
+        var description = document.createElement("p");
+        description.textContent = "Listed in the Apple collection. Please confirm current price and availability before ordering.";
+        var priceRow = document.createElement("div");
+        priceRow.className = "price-row";
+        var priceLabel = document.createElement("span");
+        priceLabel.className = "price";
+        priceLabel.textContent = price === null ? "Price on request" : "BDT " + price.toLocaleString("en-US");
+        priceRow.appendChild(priceLabel);
+
+        var actions = document.createElement("div");
+        actions.className = "product-actions";
+        var buyButton = document.createElement("button");
+        buyButton.type = "button";
+        buyButton.className = "btn btn-buy";
+        buyButton.textContent = price === null ? "Ask Price" : "Buy Now";
+        buyButton.onclick = function () { buyNow(name, price); };
+        actions.appendChild(buyButton);
+        if (price !== null) {
+            var cartButton = document.createElement("button");
+            cartButton.type = "button";
+            cartButton.className = "btn btn-cart";
+            cartButton.textContent = "🛒";
+            cartButton.setAttribute("aria-label", "Add " + name + " to cart");
+            cartButton.onclick = function () { addToCart(name, price); };
+            actions.appendChild(cartButton);
+        }
+
+        body.appendChild(brand);
+        body.appendChild(tag);
+        body.appendChild(heading);
+        body.appendChild(description);
+        body.appendChild(priceRow);
+        body.appendChild(actions);
+        card.appendChild(body);
+        grid.appendChild(card);
+    });
+
+    var count = document.getElementById("catalogCount");
+    if (count) {
+        count.textContent = grid.querySelectorAll(".product-card").length + " gadgets in our collection";
+    }
+}
+
+if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", renderAppleProducts);
+}
+
 if (typeof module !== "undefined") {
     module.exports = appleProductRows;
 }

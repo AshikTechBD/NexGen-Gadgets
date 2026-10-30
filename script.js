@@ -24,8 +24,11 @@ function goToProducts() {
 }
 
 function buyNow(productName, price) {
-    window.location.href = "contact.html?product=" + encodeURIComponent(productName) +
-        "&price=" + encodeURIComponent(price);
+    var url = "contact.html?product=" + encodeURIComponent(productName);
+    if (typeof price === "number" && isFinite(price)) {
+        url += "&price=" + encodeURIComponent(price);
+    }
+    window.location.href = url;
 }
 
 function showDeal() {
@@ -147,8 +150,9 @@ function filterProducts() {
         var card = cards[i];
         var tag = card.querySelector(".tag");
         var tagText = tag ? tag.textContent.trim().toLowerCase() : "";
-        var matchesCategory =
-            currentCategory === "all" || tagText === currentCategory;
+        var matchesCategory = currentCategory === "all" ||
+            (currentCategory === "apple" && card.getAttribute("data-brand") === "apple") ||
+            tagText === currentCategory;
         var matchesQuery = card.textContent.toLowerCase().indexOf(query) !== -1;
 
         if (matchesCategory && matchesQuery) {
@@ -214,6 +218,7 @@ function setupRetailHeader() {
     nav.className = "category-nav";
     nav.setAttribute("aria-label", "Shop by category");
     nav.innerHTML = '<div class="container categories-inner">' +
+        '<a href="products.html?category=apple">Apple <span>⌄</span></a>' +
         '<a href="products.html?category=smartphone">Phones <span>⌄</span></a>' +
         '<a href="products.html?category=tablet">Tablets &amp; Accessories <span>⌄</span></a>' +
         '<a href="products.html?category=laptop">Laptops <span>⌄</span></a>' +
@@ -233,7 +238,7 @@ function setupRetailHeader() {
     header.appendChild(nav);
 
     var groups = [
-        ["Phones", ["Smartphones", "Phone Cover", "Screen Protector", "Wireless Chargers", "Power Bank", "Smart Gadgets"]],
+        ["Apple", ["All Apple Products", "iPhone", "iPad", "MacBook", "AirPods", "Apple Watch"]],
         ["Audio", ["Wireless Headphones", "Earbuds", "Speakers", "Bluetooth Speakers", "Smart Speakers", "Over-Ear Headphones"]],
         ["Accessories", ["Phone Cases", "AirPods Case", "MacBook Cover", "Chargers", "Wireless Chargers", "Cables"]],
         ["Connectivity", ["Type-C Cable", "USB Hub", "Converter", "Lightning Cable", "Camera Accessories", "Adapters"]],
@@ -241,6 +246,8 @@ function setupRetailHeader() {
         ["More to explore", ["Power Banks", "Wearables", "Audio Gear", "Phone Accessories", "Photography", "View All Products"]]
     ];
     var categoryByItem = {
+        "All Apple Products": "apple", "iPhone": "smartphone", "iPad": "tablet",
+        "Apple Watch": "wearable", "AirPods": "audio",
         "Smartphones": "smartphone", "Laptops": "laptop", "MacBook": "laptop",
         "Tablets": "tablet", "Smartwatch": "wearable", "Wearables": "wearable",
         "Camera": "camera", "Photography": "camera", "Camera Accessories": "camera",
