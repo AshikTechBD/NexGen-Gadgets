@@ -3,29 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NexGen Gadgets - premium smartphones, laptops, audio gear and wearables at the best prices in Bangladesh.">
     <title>NexGen Gadgets - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!-- Md. Asiquzzaman, ID: 2220772 -->
 
-    <header>
-        <h1>NexGen Gadgets</h1>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img src="images/logo.svg" alt="NexGen Gadgets logo">
+                <div class="brand-text">
+                    <h1>NexGen Gadgets</h1>
+                    <span>Future In Your Hands</span>
+                </div>
+            </a>
+            <nav class="navbar" aria-label="Main navigation">
+                <ul>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-
     <main>
-        <h2>Welcome to NexGen Gadgets</h2>
+        <section class="container hero">
+            <div class="hero-text">
+                <span class="eyebrow">New Season 2026</span>
+                <h2>Smart gadgets that <span>upgrade your everyday</span></h2>
+                <p>
+                    Welcome to NexGen Gadgets, your trusted destination for the latest
+                    smartphones, laptops, audio gear and smart wearables. We hand-pick every
+                    product so that you get genuine devices, honest pricing and a warranty
+                    you can actually rely on.
+                </p>
+                <p>
+                    Whether you are a student looking for a reliable laptop, a creator who
+                    needs a sharp camera, or someone who simply loves great sound, our
+                    curated collection has something built for you. Enjoy free delivery inside
+                    Dhaka and easy 7-day returns on every single order.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="goToProducts()">Shop Now</button>
+                    <button class="btn btn-outline" onclick="showDeal()">Reveal Today's Deal</button>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img src="images/hero.svg" alt="Premium NexGen wireless headphones">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <div>
+                        <strong>4.9 / 5</strong>
+                        <small>2,300+ happy customers</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section" aria-labelledby="why-title">
+            <div class="section-head">
+                <h2 id="why-title">Why shop with NexGen?</h2>
+                <p>We focus on three things that matter most: genuine products, fast delivery and real after-sales support.</p>
+            </div>
+            <div class="feature-row">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128241;</div>
+                    <h3>100% Genuine Devices</h3>
+                    <p>Every gadget is sourced from authorised distributors and comes with an official warranty card.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128666;</div>
+                    <h3>Fast &amp; Free Delivery</h3>
+                    <p>Same-day delivery inside Dhaka and 48-hour nationwide shipping on all orders above 2,000 BDT.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128737;</div>
+                    <h3>7-Day Easy Returns</h3>
+                    <p>Changed your mind? Return any unopened product within 7 days for a full, no-questions refund.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="container section" aria-labelledby="story-title">
+            <div class="story">
+                <div class="story-media">
+                    <img src="images/contact-store.svg" alt="NexGen Gadgets flagship store at night">
+                </div>
+                <div class="story-body">
+                    <h2 id="story-title">A gadget store built around people</h2>
+                    <p>
+                        NexGen Gadgets started in 2021 as a small counter in Banani with one simple
+                        idea: buying technology should feel exciting, not confusing. Today we serve
+                        thousands of customers across Bangladesh through our online store and two
+                        physical outlets.
+                    </p>
+                    <p>
+                        Our team tests every product before it reaches the shelf, and our support
+                        desk is available seven days a week to help you choose the right device for
+                        your budget and lifestyle.
+                    </p>
+                    <ul class="story-list">
+                        <li>Authorised reseller for 20+ global brands</li>
+                        <li>Expert advice from a team of tech enthusiasts</li>
+                        <li>Transparent pricing with no hidden charges</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat"><strong>12K+</strong><span>Orders delivered</span></div>
+                <div class="stat"><strong>20+</strong><span>Global brands</span></div>
+                <div class="stat"><strong>4.9&#9733;</strong><span>Average rating</span></div>
+                <div class="stat"><strong>7 Days</strong><span>Easy returns</span></div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 NexGen Gadgets. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="index.html">
+                    <img src="images/logo.svg" alt="NexGen Gadgets logo">
+                    <div class="brand-text">
+                        <h1>NexGen Gadgets</h1>
+                        <span>Future In Your Hands</span>
+                    </div>
+                </a>
+                <p>Premium smartphones, laptops and audio gear delivered across Bangladesh with genuine warranty and friendly support.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Warranty</a></li>
+                    <li><a href="contact.html">Returns</a></li>
+                    <li><a href="contact.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <ul>
+                    <li><a href="contact.html">Banani, Dhaka</a></li>
+                    <li><a href="contact.html">+880 1700-000000</a></li>
+                    <li><a href="contact.html">hello@nexgengadgets.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>&copy; 2026 NexGen Gadgets. All rights reserved.</span>
+            <span>Designed &amp; developed by Md. Asiquzzaman (2220772)</span>
+        </div>
     </footer>
 
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
 </body>
 </html>
