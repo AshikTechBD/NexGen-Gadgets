@@ -63,6 +63,21 @@
                 </div>
             </div>
 
+            <div class="filter-row">
+                <label class="sr-only" for="productSearch">Search products</label>
+                <input type="search" id="productSearch" class="search-input" placeholder="Search gadgets by name..." oninput="filterProducts()">
+                <div class="filter-buttons" id="filterButtons">
+                    <button type="button" class="chip active" onclick="setCategory('all', this)">All</button>
+                    <button type="button" class="chip" onclick="setCategory('smartphone', this)">Smartphones</button>
+                    <button type="button" class="chip" onclick="setCategory('laptop', this)">Laptops</button>
+                    <button type="button" class="chip" onclick="setCategory('audio', this)">Audio</button>
+                    <button type="button" class="chip" onclick="setCategory('wearable', this)">Wearables</button>
+                    <button type="button" class="chip" onclick="setCategory('camera', this)">Cameras</button>
+                </div>
+            </div>
+
+            <p id="noResults" class="no-results" hidden>No products matched your search. Try another keyword.</p>
+
             <div class="product-grid">
                 <article class="product-card">
                     <div class="thumb">

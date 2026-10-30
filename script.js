@@ -4,6 +4,7 @@
    =========================================================== */
 
 var CART_KEY = "nexgenCartCount";
+var currentCategory = "all";
 
 function showToast(message) {
     var toast = document.getElementById("toast");
@@ -93,6 +94,50 @@ function resetForm() {
         form.reset();
     }
     showToast("Form cleared.");
+}
+
+function setCategory(category, button) {
+    currentCategory = category;
+    var chips = document.querySelectorAll("#filterButtons .chip");
+    for (var i = 0; i < chips.length; i++) {
+        chips[i].classList.remove("active");
+    }
+    if (button) {
+        button.classList.add("active");
+    }
+    filterProducts();
+}
+
+function filterProducts() {
+    var input = document.getElementById("productSearch");
+    var query = input ? input.value.trim().toLowerCase() : "";
+    var cards = document.querySelectorAll(".product-card");
+    var visible = 0;
+
+    for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var tag = card.querySelector(".tag");
+        var tagText = tag ? tag.textContent.trim().toLowerCase() : "";
+        var matchesCategory =
+            currentCategory === "all" || tagText === currentCategory;
+        var matchesQuery = card.textContent.toLowerCase().indexOf(query) !== -1;
+
+        if (matchesCategory && matchesQuery) {
+            card.removeAttribute("hidden");
+            visible++;
+        } else {
+            card.setAttribute("hidden", "");
+        }
+    }
+
+    var empty = document.getElementById("noResults");
+    if (empty) {
+        if (visible === 0) {
+            empty.removeAttribute("hidden");
+        } else {
+            empty.setAttribute("hidden", "");
+        }
+    }
 }
 
 function subscribeNewsletter() {
