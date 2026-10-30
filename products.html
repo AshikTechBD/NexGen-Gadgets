@@ -52,7 +52,7 @@
             <div class="product-toolbar">
                 <div>
                     <h2 style="color: #0f172a; margin-bottom: 0.2rem;">All Products</h2>
-                    <p style="color: #64748b; font-size: 0.9rem;">6 gadgets available right now</p>
+                    <p id="catalogCount" style="color: #64748b; font-size: 0.9rem;">100 gadgets in our collection</p>
                 </div>
                 <div style="display: flex; gap: 0.7rem; flex-wrap: wrap; align-items: center;">
                     <div class="cart-pill" aria-live="polite">
@@ -73,6 +73,8 @@
                     <button type="button" class="chip" onclick="setCategory('audio', this)">Audio</button>
                     <button type="button" class="chip" onclick="setCategory('wearable', this)">Wearables</button>
                     <button type="button" class="chip" onclick="setCategory('camera', this)">Cameras</button>
+                    <button type="button" class="chip" onclick="setCategory('tablet', this)">Tablets</button>
+                    <button type="button" class="chip" onclick="setCategory('accessory', this)">Accessories</button>
                 </div>
             </div>
 
@@ -81,7 +83,7 @@
             <div class="product-grid">
                 <article class="product-card">
                     <div class="thumb">
-                        <img src="images/product-phone.svg" alt="NexGen X1 smartphone with edge-to-edge display">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&amp;q=75" alt="Real smartphone photographed on a desk" loading="lazy">
                     </div>
                     <div class="product-body">
                         <span class="tag">Smartphone</span>
@@ -97,7 +99,7 @@
 
                 <article class="product-card">
                     <div class="thumb">
-                        <img src="images/product-laptop.svg" alt="NexGen UltraBook laptop with slim bezels">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&amp;q=75" alt="Real laptop photographed on a wooden desk" loading="lazy">
                     </div>
                     <div class="product-body">
                         <span class="tag">Laptop</span>
@@ -113,7 +115,7 @@
 
                 <article class="product-card">
                     <div class="thumb">
-                        <img src="images/product-headphones.svg" alt="NexGen Studio over-ear headphones">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&amp;q=75" alt="Real over-ear headphones on a yellow background" loading="lazy">
                     </div>
                     <div class="product-body">
                         <span class="tag">Audio</span>
@@ -129,7 +131,7 @@
 
                 <article class="product-card">
                     <div class="thumb">
-                        <img src="images/product-watch.svg" alt="NexGen Fit smartwatch with digital display">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&amp;q=75" alt="Real modern wristwatch on a neutral background" loading="lazy">
                     </div>
                     <div class="product-body">
                         <span class="tag">Wearable</span>
@@ -145,7 +147,7 @@
 
                 <article class="product-card">
                     <div class="thumb">
-                        <img src="images/product-camera.svg" alt="NexGen Shot mirrorless camera">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&amp;q=75" alt="Real camera and lenses photographed on a table" loading="lazy">
                     </div>
                     <div class="product-body">
                         <span class="tag">Camera</span>
@@ -161,7 +163,7 @@
 
                 <article class="product-card">
                     <div class="thumb">
-                        <img src="images/product-speaker.svg" alt="NexGen Boom portable Bluetooth speaker">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&amp;q=75" alt="Real portable Bluetooth speaker on a table" loading="lazy">
                     </div>
                     <div class="product-body">
                         <span class="tag">Audio</span>
@@ -222,6 +224,7 @@
     </footer>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="catalog.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
