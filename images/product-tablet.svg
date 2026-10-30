@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="NexGen Tab tablet">
+  <rect width="400" height="300" fill="#eef2ff"/>
+  <circle cx="330" cy="70" r="60" fill="#c7d2fe"/>
+  <rect x="110" y="40" width="180" height="220" rx="20" fill="#0f172a"/>
+  <rect x="124" y="56" width="152" height="188" rx="10" fill="#6366f1"/>
+  <rect x="146" y="86" width="108" height="10" rx="5" fill="#ffffff" opacity="0.85"/>
+  <rect x="146" y="108" width="80" height="8" rx="4" fill="#ffffff" opacity="0.45"/>
+  <rect x="146" y="128" width="96" height="8" rx="4" fill="#ffffff" opacity="0.45"/>
+  <circle cx="200" cy="238" r="6" fill="#334155"/>
+</svg>

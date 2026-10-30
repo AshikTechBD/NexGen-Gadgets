@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="NexGen Gadgets storefront">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#312e81"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="360" fill="url(#sky)"/>
+  <circle cx="80" cy="80" r="3" fill="#e2e8f0"/>
+  <circle cx="400" cy="60" r="2" fill="#e2e8f0"/>
+  <circle cx="330" cy="120" r="2" fill="#e2e8f0"/>
+  <circle cx="150" cy="50" r="2" fill="#e2e8f0"/>
+  <rect x="70" y="150" width="340" height="170" rx="10" fill="#1e293b"/>
+  <rect x="60" y="120" width="360" height="40" rx="8" fill="#6366f1"/>
+  <rect x="90" y="185" width="120" height="80" rx="8" fill="#22d3ee"/>
+  <rect x="230" y="185" width="150" height="80" rx="8" fill="#0f172a"/>
+  <rect x="240" y="196" width="60" height="8" rx="4" fill="#a855f7"/>
+  <rect x="240" y="212" width="90" height="6" rx="3" fill="#64748b"/>
+  <rect x="240" y="226" width="70" height="6" rx="3" fill="#64748b"/>
+  <rect x="200" y="285" width="80" height="35" rx="6" fill="#334155"/>
+  <text x="240" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" letter-spacing="3">NEXGEN</text>
+</svg>

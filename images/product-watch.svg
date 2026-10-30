@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="NexGen Fit smartwatch">
+  <rect width="400" height="300" fill="#eef2ff"/>
+  <circle cx="90" cy="70" r="60" fill="#cffafe"/>
+  <rect x="168" y="20" width="64" height="80" rx="18" fill="#334155"/>
+  <rect x="168" y="200" width="64" height="80" rx="18" fill="#334155"/>
+  <rect x="140" y="80" width="120" height="140" rx="28" fill="#0f172a"/>
+  <rect x="152" y="92" width="96" height="116" rx="18" fill="#22d3ee"/>
+  <text x="200" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#0f172a">10:24</text>
+  <text x="200" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0f172a">6,240 STEPS</text>
+  <circle cx="290" cy="100" r="6" fill="#a855f7"/>
+</svg>
