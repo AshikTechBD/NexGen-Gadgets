@@ -23,6 +23,11 @@ function goToProducts() {
     window.location.href = "products.html";
 }
 
+function buyNow(productName, price) {
+    window.location.href = "contact.html?product=" + encodeURIComponent(productName) +
+        "&price=" + encodeURIComponent(price);
+}
+
 function showDeal() {
     var deals = [
         "Deal of the day: NexGen Studio ANC at 15% off!",
@@ -307,8 +312,24 @@ function applyCatalogQuery() {
     filterProducts();
 }
 
+function applyOrderInquiry() {
+    var subject = document.getElementById("subject");
+    var message = document.getElementById("message");
+    if (!subject || !message) {
+        return;
+    }
+    var params = new URLSearchParams(window.location.search);
+    var product = params.get("product");
+    if (product) {
+        subject.value = "order";
+        message.value = "I would like to order " + product +
+            (params.get("price") ? " (BDT " + Number(params.get("price")).toLocaleString("en-US") + ")" : "") + ".";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     updateCartBadge();
     setupRetailHeader();
     applyCatalogQuery();
+    applyOrderInquiry();
 });

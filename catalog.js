@@ -84,18 +84,30 @@ function renderCatalog() {
             priceLabel.className = "price";
             priceLabel.textContent = "BDT " + price.toLocaleString("en-US");
             priceRow.appendChild(priceLabel);
-            var button = document.createElement("button");
-            button.type = "button";
-            button.className = "btn btn-add";
-            button.textContent = "Add to Cart";
-            button.onclick = (function (itemName, itemPrice) {
+            var actions = document.createElement("div");
+            actions.className = "product-actions";
+            var buyButton = document.createElement("button");
+            buyButton.type = "button";
+            buyButton.className = "btn btn-buy";
+            buyButton.textContent = "Buy Now";
+            buyButton.onclick = (function (itemName, itemPrice) {
+                return function () { buyNow(itemName, itemPrice); };
+            })(title, price);
+            var cartButton = document.createElement("button");
+            cartButton.type = "button";
+            cartButton.className = "btn btn-cart";
+            cartButton.textContent = "🛒";
+            cartButton.setAttribute("aria-label", "Add " + title + " to cart");
+            cartButton.onclick = (function (itemName, itemPrice) {
                 return function () { addToCart(itemName, itemPrice); };
             })(title, price);
+            actions.appendChild(buyButton);
+            actions.appendChild(cartButton);
             body.appendChild(tag);
             body.appendChild(heading);
             body.appendChild(description);
             body.appendChild(priceRow);
-            body.appendChild(button);
+            body.appendChild(actions);
             card.appendChild(body);
             grid.appendChild(card);
             added++;
