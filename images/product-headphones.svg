@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="NexGen Studio headphones">
-  <rect width="400" height="300" fill="#eef2ff"/>
-  <circle cx="320" cy="80" r="70" fill="#ddd6fe"/>
-  <path d="M110 190v-20a90 90 0 0 1 180 0v20" fill="none" stroke="#a855f7" stroke-width="16" stroke-linecap="round"/>
-  <rect x="88" y="170" width="50" height="100" rx="22" fill="#6366f1"/>
-  <rect x="262" y="170" width="50" height="100" rx="22" fill="#6366f1"/>
-  <rect x="100" y="188" width="26" height="64" rx="13" fill="#1e1b4b"/>
-  <rect x="274" y="188" width="26" height="64" rx="13" fill="#1e1b4b"/>
-</svg>
