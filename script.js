@@ -327,9 +327,37 @@ function applyOrderInquiry() {
     }
 }
 
+function setupFloatingTools() {
+    var tools = document.createElement("aside");
+    tools.className = "floating-tools";
+    tools.setAttribute("aria-label", "Quick help and navigation");
+    tools.innerHTML = '<button type="button" class="back-top" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: \'smooth\'})">⌃</button>' +
+        '<div class="help-wrap">' +
+            '<div class="help-prompt" id="helpPrompt"><span class="online-dot"></span>' +
+                '<a href="contact.html">How can I help you?</a>' +
+                '<button type="button" aria-label="Close help message" onclick="closeHelpPrompt()">×</button></div>' +
+            '<a class="help-button" href="contact.html" aria-label="Contact customer support">☏<span class="online-dot"></span></a>' +
+        '</div>';
+    document.body.appendChild(tools);
+    var backTop = tools.querySelector(".back-top");
+    function updateBackTop() {
+        backTop.classList.toggle("visible", window.scrollY > 450);
+    }
+    window.addEventListener("scroll", updateBackTop, { passive: true });
+    updateBackTop();
+}
+
+function closeHelpPrompt() {
+    var prompt = document.getElementById("helpPrompt");
+    if (prompt) {
+        prompt.hidden = true;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     updateCartBadge();
     setupRetailHeader();
     applyCatalogQuery();
     applyOrderInquiry();
+    setupFloatingTools();
 });

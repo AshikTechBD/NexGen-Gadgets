@@ -663,3 +663,110 @@ body {
         font-size: 0.72rem;
     }
 }
+
+/* Floating help bubble and back-to-top control from the reference. */
+.floating-tools {
+    position: fixed;
+    bottom: 20px;
+    right: 18px;
+    z-index: 95;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.back-top {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #dce4ee;
+    background: #fff;
+    color: var(--ink);
+    box-shadow: var(--shadow-lg);
+    font: inherit;
+    font-weight: 800;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.back-top.visible {
+    display: block;
+}
+
+.help-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.help-prompt {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 18px 18px 5px 18px;
+    background: linear-gradient(90deg, #080a0d 60%, #d5101a);
+    box-shadow: 0 13px 30px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.help-prompt[hidden] {
+    display: none;
+}
+
+.help-prompt a:hover {
+    text-decoration: underline;
+}
+
+.help-prompt button {
+    background: none;
+    border: 0;
+    color: #f9cccc;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.online-dot {
+    display: inline-block;
+    flex: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10d597;
+    box-shadow: 0 0 0 3px rgba(16, 213, 151, 0.2);
+}
+
+.help-button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #121c32;
+    color: #fff;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.help-button .online-dot {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+}
+
+@media (max-width: 480px) {
+    .floating-tools {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .help-prompt {
+        font-size: 0.74rem;
+    }
+}
