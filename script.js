@@ -84,16 +84,40 @@ function sendMessage() {
         return;
     }
 
-    showToast("Thanks " + name.value.trim() + "! Your message was sent successfully.");
-    resetForm();
+    var form = name.form;
+    var sender = name.value.trim();
+    var button = form.querySelector("button[onclick='sendMessage()']");
+    button.disabled = true;
+    showToast("Sending your message...");
+    submitNetlifyForm(form).then(function () {
+        form.reset();
+        showToast("Thanks " + sender + "! Your message was sent successfully.");
+    }).catch(function () {
+        showToast("Could not send your message. Please try again on the live site.");
+    }).finally(function () {
+        button.disabled = false;
+    });
 }
 
 function resetForm() {
-    var form = document.querySelector("form");
+    var form = document.querySelector("form[name='contact']");
     if (form) {
         form.reset();
     }
     showToast("Form cleared.");
+}
+
+function submitNetlifyForm(form) {
+    var data = new URLSearchParams(new FormData(form));
+    return fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: data.toString()
+    }).then(function (response) {
+        if (!response.ok) {
+            throw new Error("Submission failed");
+        }
+    });
 }
 
 function setCategory(category, button) {
@@ -151,8 +175,18 @@ function subscribeNewsletter() {
         input.focus();
         return false;
     }
-    showToast("You're subscribed! Welcome to the NexGen family.");
-    input.value = "";
+    var form = input.form;
+    var button = form.querySelector("button[onclick='subscribeNewsletter()']");
+    button.disabled = true;
+    showToast("Subscribing...");
+    submitNetlifyForm(form).then(function () {
+        input.value = "";
+        showToast("You're subscribed! Welcome to the NexGen family.");
+    }).catch(function () {
+        showToast("Could not subscribe. Please try again on the live site.");
+    }).finally(function () {
+        button.disabled = false;
+    });
     return false;
 }
 

@@ -50,7 +50,8 @@
                         reads every message and usually replies within a few hours during business
                         hours (Saturday to Thursday, 10am - 8pm).
                     </p>
-                    <form class="form-grid" novalidate>
+                    <form class="form-grid" name="contact" method="POST" data-netlify="true" novalidate>
+                        <input type="hidden" name="form-name" value="contact">
                         <div class="field">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="e.g. Md. Asiquzzaman" required>
