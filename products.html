@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse more than 240 gadgets, including 144 Apple products, phones, laptops, audio, tablets and accessories.">
+    <meta name="description" content="Browse over 1,500 gadgets, including 1,258 phone listings from Dazzle and 144 Apple listings from Apple Gadgets BD.">
     <title>NexGen Gadgets - Products</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="retail.css">
@@ -36,8 +36,8 @@
                 <span class="pill">Our Collection</span>
                 <h2>Gadgets worth upgrading for</h2>
                 <p>
-                    Browse our gadget collection, now featuring 144 Apple products alongside
-                    phones, laptops, audio gear, tablets and accessories.
+                    Browse our gadget collection with 1,258 phones from Dazzle and 144 Apple
+                    listings alongside laptops, audio gear, tablets and accessories.
                 </p>
             </div>
         </section>
@@ -47,8 +47,9 @@
                 Use the category menu or search bar to explore the collection. Each card shows
                 a product photo, a price and quick Buy Now or Add to Cart actions.
             </p>
-            <p class="source-note">Apple product details are a 30 October 2026 snapshot from
-                <a href="https://www.applegadgetsbd.com/brands/apple" target="_blank" rel="noopener noreferrer">Apple Gadgets BD</a>.
+            <p class="source-note">Product details and listed BDT prices are 30 October 2026 snapshots from
+                <a href="https://www.applegadgetsbd.com/brands/apple" target="_blank" rel="noopener noreferrer">Apple Gadgets BD</a> and
+                <a href="https://dazzle.com.bd/categories/phones" target="_blank" rel="noopener noreferrer">Dazzle</a>.
                 Prices and availability may change; please confirm before ordering. NexGen Gadgets is an independent demo storefront.</p>
 
             <div class="product-toolbar">
@@ -71,6 +72,7 @@
                 <div class="filter-buttons" id="filterButtons">
                     <button type="button" class="chip active" onclick="setCategory('all', this)">All</button>
                     <button type="button" class="chip" onclick="setCategory('apple', this)">Apple</button>
+                    <button type="button" class="chip" onclick="setCategory('dazzle', this)">Dazzle Phones</button>
                     <button type="button" class="chip" onclick="setCategory('smartphone', this)">Smartphones</button>
                     <button type="button" class="chip" onclick="setCategory('laptop', this)">Laptops</button>
                     <button type="button" class="chip" onclick="setCategory('audio', this)">Audio</button>
@@ -80,6 +82,10 @@
                     <button type="button" class="chip" onclick="setCategory('desktop', this)">Desktops</button>
                     <button type="button" class="chip" onclick="setCategory('accessory', this)">Accessories</button>
                 </div>
+                <label class="sr-only" for="brandFilter">Filter phones by brand</label>
+                <select id="brandFilter" class="brand-filter" onchange="filterProducts()">
+                    <option value="">All phone brands</option>
+                </select>
             </div>
 
             <p id="noResults" class="no-results" hidden>No products matched your search. Try another keyword.</p>
@@ -230,6 +236,8 @@
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="catalog.js"></script>
     <script src="apple-products.js"></script>
+    <script src="dazzle-data.js"></script>
+    <script src="dazzle-products.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

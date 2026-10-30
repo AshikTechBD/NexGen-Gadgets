@@ -130,6 +130,8 @@ function submitNetlifyForm(form) {
 
 function setCategory(category, button) {
     currentCategory = category;
+    var brandFilter = document.getElementById("brandFilter");
+    if (brandFilter) brandFilter.value = "";
     var chips = document.querySelectorAll("#filterButtons .chip");
     for (var i = 0; i < chips.length; i++) {
         chips[i].classList.remove("active");
@@ -143,6 +145,8 @@ function setCategory(category, button) {
 function filterProducts() {
     var input = document.getElementById("productSearch");
     var query = input ? input.value.trim().toLowerCase() : "";
+    var brandFilter = document.getElementById("brandFilter");
+    var chosenBrand = brandFilter ? brandFilter.value : "";
     var cards = document.querySelectorAll(".product-card");
     var visible = 0;
 
@@ -151,11 +155,14 @@ function filterProducts() {
         var tag = card.querySelector(".tag");
         var tagText = tag ? tag.textContent.trim().toLowerCase() : "";
         var matchesCategory = currentCategory === "all" ||
-            (currentCategory === "apple" && card.getAttribute("data-brand") === "apple") ||
+            (currentCategory === "apple" && (card.getAttribute("data-brand") === "apple" ||
+                card.getAttribute("data-phone-brand") === "apple")) ||
+            (currentCategory === "dazzle" && card.getAttribute("data-brand") === "dazzle") ||
             tagText === currentCategory;
+        var matchesBrand = !chosenBrand || card.getAttribute("data-phone-brand") === chosenBrand;
         var matchesQuery = card.textContent.toLowerCase().indexOf(query) !== -1;
 
-        if (matchesCategory && matchesQuery) {
+        if (matchesCategory && matchesBrand && matchesQuery) {
             card.removeAttribute("hidden");
             visible++;
         } else {
@@ -171,6 +178,8 @@ function filterProducts() {
             empty.setAttribute("hidden", "");
         }
     }
+    var count = document.getElementById("catalogCount");
+    if (count) count.textContent = visible + " shown of " + cards.length + " gadgets";
 }
 
 function subscribeNewsletter() {
@@ -243,10 +252,10 @@ function setupRetailHeader() {
         ["Accessories", ["Phone Cases", "AirPods Case", "MacBook Cover", "Chargers", "Wireless Chargers", "Cables"]],
         ["Connectivity", ["Type-C Cable", "USB Hub", "Converter", "Lightning Cable", "Camera Accessories", "Adapters"]],
         ["Computing", ["Laptops", "Tablets", "Desktop Accessories", "MacBook", "Camera", "Smartwatch"]],
-        ["More to explore", ["Power Banks", "Wearables", "Audio Gear", "Phone Accessories", "Photography", "View All Products"]]
+        ["More to explore", ["Dazzle Phones", "Wearables", "Audio Gear", "Phone Accessories", "Photography", "View All Products"]]
     ];
     var categoryByItem = {
-        "All Apple Products": "apple", "iPhone": "smartphone", "iPad": "tablet",
+        "All Apple Products": "apple", "Dazzle Phones": "dazzle", "iPhone": "smartphone", "iPad": "tablet",
         "Apple Watch": "wearable", "AirPods": "audio",
         "Smartphones": "smartphone", "Laptops": "laptop", "MacBook": "laptop",
         "Tablets": "tablet", "Smartwatch": "wearable", "Wearables": "wearable",
